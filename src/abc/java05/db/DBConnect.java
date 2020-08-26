@@ -8,7 +8,7 @@ public class DBConnect {
     final static private String usernameDB = "";
     final static private String passwordDB = "";
 
-    Connection connection;
+    static Connection connection;
 
     // khoi tao ket noi
     public DBConnect () {
