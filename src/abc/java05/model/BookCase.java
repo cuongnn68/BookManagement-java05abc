@@ -8,4 +8,6 @@ public class BookCase {
     private String id;
     private String createDate;// date
     private List<Book> books = new ArrayList<>();
+
+
 }
