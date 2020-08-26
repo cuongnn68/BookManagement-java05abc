@@ -15,17 +15,20 @@ public class DBBook {
 
     /*
     * Lay 1 sach theo id
+    * Neu khong tim thay return null
     * */
-    public Book get(String id) {
+    public Book getBookByID(String id) {
         return null;
     }
 
 
     /*
     * Them sach vao database
+    * return true neu save thanh cong
+    * return false neu save khong thanh cong
     * */
-    public void save(Book book) {
-
+    public boolean save(Book book) {
+        return false;
     }
 
     /*
