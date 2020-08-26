@@ -7,6 +7,10 @@ import java.util.List;
 
 public class UserService {
 
+    public String readBook (String bookID) {
+        return null;
+    }
+
     public List<Book> viewAllBooks () {
         return null;
     }
@@ -15,7 +19,13 @@ public class UserService {
         return null;
     }
 
-    public List<Book> searchBook () {
+    public List<Book> searchBookByName () {
+        return null;
+    }
+    public List<Book> searchBookByAuthor () {
+        return null;
+    }
+    public List<Book> searchBookByCategory () {
         return null;
     }
 

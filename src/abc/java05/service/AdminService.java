@@ -14,6 +14,8 @@ public class AdminService {
         return false;
     }
 
-    // TODO: edit book
+    public boolean updateBook(String bookID, String bookContent) {
+        return false;
+    }
 
 }
