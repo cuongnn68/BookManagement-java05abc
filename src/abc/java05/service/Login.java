@@ -5,9 +5,9 @@ import abc.java05.util.Role;
 
 public class Login {
 
-    /* TODO:
-    * ae xem lai phan nay cai
+    /* 
     * return null khi khong co tai khoan, sai mat khau ...
+    * Neu co tai khoan va dung mk thi retunr user
     * */
     public User checkAccount (String username, String password) {
         return null;

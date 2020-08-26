@@ -4,7 +4,8 @@ import abc.java05.model.Book;
 
 import java.util.List;
 
-public interface DAO<T> {
+//KO DUNG
+public interface DAO<T> { //Data Access Object: db -> object
     List<T> getAll();
 
     T get(String id);

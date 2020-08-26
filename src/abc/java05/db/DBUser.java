@@ -4,29 +4,34 @@ import abc.java05.model.User;
 
 import java.util.List;
 
-public class DAOUser implements DAO<User> {
+public class DBUser {
 
-    @Override
+    /*
+    * Lay danh sach toan bo user
+    * */
     public List<User> getAll() {
         return null;
     }
 
-    @Override
+    /*
+    * Lay user theo username
+    * Tra ve null neu ko co nguoi dung nao
+    * */
     public User get(String username) {
         return null;
     }
 
-    @Override
+    //ko dung, ko lam
     public void save(User user) {
 
     }
 
-    @Override
+    //ko dung, ko lam
     public void update(User user) {
 
     }
 
-    @Override
+    //ko dung, ko lam
     public void delete(User user) {
 
     }
