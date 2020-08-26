@@ -1,3 +1,3 @@
-###Readme
+## Readme
 - jdk 1.8
-- database: 
+- database: sql sáºerváºer
