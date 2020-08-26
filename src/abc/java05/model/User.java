@@ -5,6 +5,16 @@ public class User {
     private String password;
     private String role;
 
+    public String getBookCaseID() {
+        return bookCaseID;
+    }
+
+    public void setBookCaseID(String bookCaseID) {
+        this.bookCaseID = bookCaseID;
+    }
+
+    private String bookCaseID;
+
     public String getUserName() {
         return userName;
     }
