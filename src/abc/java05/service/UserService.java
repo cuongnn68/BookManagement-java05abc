@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import abc.java05.db.DAOBook;
-import abc.java05.db.DAOBookCase;
-import abc.java05.db.DAOUser;
+import abc.java05.db.DBBook;
+import abc.java05.db.DBBookCase;
+import abc.java05.db.DBUser;
 import abc.java05.model.Book;
 import abc.java05.model.BookCase;
 import abc.java05.model.User;
 
 public class UserService {
-	private DAOBook daoBook = new DAOBook();
-	private DAOUser daoUser = new DAOUser();
-	private DAOBookCase daoBookCase = new DAOBookCase();
+	private DBBook daoBook = new DBBook();
+	private DBUser daoUser = new DBUser();
+	private DBBookCase daoBookCase = new DBBookCase();
 
 	/*
 	 * Tu id book lay Book tu data base xong tra ve content
