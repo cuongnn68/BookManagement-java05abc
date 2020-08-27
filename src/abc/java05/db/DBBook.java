@@ -119,12 +119,14 @@ public class DBBook {
      * */
     public boolean delete(Book book) {
         Connection cons = DBConnect.getConnection();
-        String sql="DELETE * FROM Book WHERE book_id = '"+book.getId()+"'";
+        String sql = "DELETE * FROM Book WHERE book_id = '" + book.getId() + "'";
+        String sql1 = "DELETE * FROM Contain WHERE book_id = '" + book.getId() + "'";
         try {
             Statement statement = cons.createStatement();
             int rs = statement.executeUpdate(sql);
+            int rs1 = statement.executeUpdate(sql1);
             cons.close();
-            if (rs == 1) {
+            if (rs == 1 && rs1 == 1) {
                 return true;
             }
 
