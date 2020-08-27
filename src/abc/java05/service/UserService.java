@@ -87,7 +87,7 @@ public class UserService {
 		List<User> users = daoUser.getAll();
 		String bookCaseID = null;
 		for (User user : users) {
-			if (user.getUserID().equalsIgnoreCase(userID)) {
+			if (user.getId().equalsIgnoreCase(userID)) {
 				bookCaseID = user.getBookCaseID();
 			}
 		}
@@ -111,16 +111,16 @@ public class UserService {
 		if (book1 != null) {
 			check1 = true;
 		}
-		for (Book book : booksInBookCase) {
-			if (book.getId().equalsIgnoreCase(bookID)) {
-				check2 = true;
-				break;
+		if(bookCase != null) {
+			for (Book book : booksInBookCase) {
+				if (book.getId().equalsIgnoreCase(bookID)) {
+					check2 = true;
+					break;
+				}
 			}
 		}
 		if (check1 && !check2) {
-			booksInBookCase.add(book1);
-			bookCase.setBooks(booksInBookCase);
-			daoBookCase.update(bookCase);
+			daoBookCase.addBook(bookCaseID, bookID);
 			return true;
 		}
 		return false;
@@ -133,14 +133,13 @@ public class UserService {
 	 */
 	public boolean removeBookInBookCase(String bookCaseID, String bookID) {
 		BookCase bookCase = daoBookCase.get(bookCaseID);
-		List<Book> books = bookCase.getBooks();
-		Iterator<Book> iterator = books.iterator();
-		while (iterator.hasNext()) {
-			if (iterator.next().getId().equalsIgnoreCase(bookID)) {
-				iterator.remove();
-				bookCase.setBooks(books);
-				daoBookCase.update(bookCase);
-				return true;
+		if(bookCase != null) {
+			List<Book> books = bookCase.getBooks();
+			for (Book book : books) {
+				if (book.getId().equalsIgnoreCase(bookID)) {
+					daoBookCase.removeBook(bookCaseID, bookID);
+					return true;
+				}
 			}
 		}
 		return false;
@@ -152,6 +151,11 @@ public class UserService {
 	* co ham clear trong dbbookcase
 	* */
 	public boolean clearBookCase (String bookCaseID) {
+		BookCase bookCase = daoBookCase.get(bookCaseID);
+		if(bookCase != null && !bookCase.getBooks().isEmpty()) {
+			daoBookCase.clearBook(bookCaseID);
+			return true;
+		}
 		return false;
 	}
 
