@@ -100,6 +100,7 @@ public class UserService {
 	/*
 	 * Kiem tra: - co sach trong book case chua ko - Sach co ton tai ko Ok thi
 	 * return true, va them sach vao bookcase Ko thi false
+	 * Dung ham addBook trong DBBookCase de add book
 	 */
 	public boolean addBookToBookCase(String bookCaseID, String bookID) {
 		BookCase bookCase = daoBookCase.get(bookCaseID);
@@ -128,6 +129,7 @@ public class UserService {
 	/*
 	 * Kiem tra xem sach co trong bookcase chua Co thi return false Ko co thi remove va
 	 * return true
+	 * Dung ham removeBook trong dbBookCase de remove
 	 */
 	public boolean removeBookInBookCase(String bookCaseID, String bookID) {
 		BookCase bookCase = daoBookCase.get(bookCaseID);
@@ -141,6 +143,15 @@ public class UserService {
 				return true;
 			}
 		}
+		return false;
+	}
+
+	/*
+	* Xoa toan bo sach trong bookcase
+	* false neu ko co sach trong book case
+	* co ham clear trong dbbookcase
+	* */
+	public boolean clearBookCase (String bookCaseID) {
 		return false;
 	}
 
