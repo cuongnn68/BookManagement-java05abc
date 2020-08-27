@@ -198,10 +198,10 @@ public class DBBook {
     /*
      * Xoa sach trong bang Book va bang Contain
      * */
-    public static boolean delete(Book book) {
+    public static boolean delete(String bookID) {
         Connection cons = DBConnect.getConnection();
-        String sql = "DELETE * FROM Book WHERE book_id = '" + book.getId() + "'";
-        String sql1 = "DELETE * FROM Contain WHERE book_id = '" + book.getId() + "'";
+        String sql = "DELETE * FROM Book WHERE book_id = '" + bookID + "'";
+        String sql1 = "DELETE * FROM Contain WHERE book_id = '" + bookID + "'";
         try {
             Statement statement = cons.createStatement();
             int rs = statement.executeUpdate(sql);

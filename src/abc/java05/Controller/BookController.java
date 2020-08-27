@@ -16,30 +16,25 @@ public class BookController {
         Scanner scanner=new Scanner(System.in);
         Book book =new Book();
         System.out.println("Nhập dữ liệu của cuốn sách");
-        System.out.println("Nhập book_id:");
+        System.out.println("1.Enter the name");
         book.setId(scanner.nextLine());
-        System.out.println("Nhập title:");
+        System.out.println("2.Enter the title:");
         book.setTitle(scanner.nextLine());
-        System.out.println("Nhập author:");
+        System.out.println("Enter the author:");
         book.setAuthor(scanner.nextLine());
-        System.out.println("Nhập brief:");
+        System.out.println("Enter the brief:");
         book.setBrief(scanner.nextLine());
-        System.out.println("Nhập category");
+        System.out.println("Enter the category");
         book.setCategory(scanner.nextLine());
-        System.out.println("Nhập content");
+        System.out.println("Enter the content");
         book.setContent(scanner.nextLine());
         return book;
-
     }
-    public boolean update(Book book) {
-        boolean rs = false;
-        if (book != null) {
-            rs =DBBook.update(book);
-            if(rs==true){
-                System.out.println("Cập nhật thành công.");
-            }
-        }
-        return rs;
+
+    public static void CreateBook(){
+       Book book=InputData();
+       String create=insert(book);
+        System.out.println(create);
     }
 
    public static void ReadBook(){
@@ -54,7 +49,7 @@ public class BookController {
        }
    }
 
-    public static void Search() {
+    public static void SearchBook() {
         List<Book> rs = null;
         int choose = 0;
         do {
@@ -94,24 +89,7 @@ public class BookController {
 
 
     }
-    public String insert(Book  book){
-        String rs = null;
-       if(DBBook.getBookByID(book.getId())!=null){
-           return "Dữ liệu đã tồn tại";
-       }
 
-        if(book != null && !book.getId().isEmpty()){
-            // thực hiện việc thêm mới
-            // DAO
-            boolean check = DBBook.save(book);
-            if(check == true){
-                rs ="Thêm mới thành công";
-            }else{
-                rs="Thêm mới thất bại!";
-            }
-        }
-        return  rs;
-    }
     public static void  ViewListBooks(){
         List<Book> bookList=DBBook.getAll();
         if(bookList==null){
@@ -121,6 +99,57 @@ public class BookController {
         System.out.println("You are have "+bookList.size()+" book");
         listBookDisplay(bookList);
     }
+
+    public static void DeleteBook(){
+        System.out.println("Please enter new book's id:");
+        String bookID=new Scanner(System.in).nextLine();
+        if(DBBook.delete(bookID)){
+            System.out.println("book successfully deleted!");
+        }else {
+            System.out.println("book fail deleted!");
+        }
+
+    }
+
+    public static void UpdateContent(){
+        System.out.println("Enter bookID,which you update content:");
+        String id=new Scanner(System.in).nextLine();
+        Book book=DBBook.getBookByID(id);
+        if(book==null){
+            System.out.println("bookID not exist");
+            return;
+        }
+        System.out.println("Please enter new book's content:");
+        String content=new Scanner(System.in).nextLine();
+        book.setContent(content);
+        if(DBBook.update(book)){
+            System.out.println("book successfully updated!");
+        }else {
+            System.out.println("book fail updated!");
+        }
+
+
+    }
+
+    public static String insert(Book  book){
+        String rs = null;
+       if(DBBook.getBookByID(book.getId())!=null){
+           return "book fail created!";
+       }
+
+        if(book != null && !book.getId().isEmpty()){
+            // thực hiện việc thêm mới
+            // DAO
+            boolean check = DBBook.save(book);
+            if(check == true){
+                rs ="book successfully create!";
+            }else{
+                rs="book fail created!";
+            }
+        }
+        return  rs;
+    }
+
     public static void listBookDisplay(List<Book> list){
         if(list== null){
             System.out.println("There are not any book in application");
@@ -131,5 +160,15 @@ public class BookController {
             System.out.println("STT   id       Name          Author     Category     Brief     Title          Publisher" );
             book.display();
         }
+    }
+    public boolean update(Book book) {
+        boolean rs = false;
+        if (book != null) {
+            rs =DBBook.update(book);
+            if(rs==true){
+                System.out.println("Cập nhật thành công.");
+            }
+        }
+        return rs;
     }
 }
