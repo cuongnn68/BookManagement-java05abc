@@ -75,4 +75,8 @@ public class Book {
     public void setCategory(String category) {
         this.category = category;
     }
+
+  public void display(){
+      System.out.printf("\n%-8s%-10s%-14s%-11s%-13s%-9s%-15s%-9s%",this.id ,this.title,this.author,this.category,this.brief,this.content,this.publisher);
+  }
 }
