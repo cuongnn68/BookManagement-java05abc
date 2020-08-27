@@ -1,7 +1,6 @@
 package abc.java05.service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import abc.java05.db.DBBook;
