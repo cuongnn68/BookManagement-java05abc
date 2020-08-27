@@ -9,6 +9,17 @@ public class Book {
     private String content;
     private String category;
 
+
+    public Book(){}
+    public Book(String title, String author, String brief, String publisher, String category, String content) {
+        this.title = title;
+        this.author = author;
+        this.brief = brief;
+        this.publisher = publisher;
+        this.content = content;
+        this.category = category;
+    }
+
     public String getId() {
         return id;
     }
