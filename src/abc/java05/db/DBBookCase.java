@@ -55,7 +55,7 @@ public class DBBookCase {
     }
 
     /*
-    * Xoa toan bo gia tri co gia tri = bookCaseID
+    * Xoa toan bo gia tri co gia tri = bookCaseID trong contain table
     * */
     public void clearBook(String bookCaseID) {
 

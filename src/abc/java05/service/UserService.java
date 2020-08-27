@@ -22,7 +22,7 @@ public class UserService {
 	public String readBook(String bookID) {
 		List<Book> books = daoBook.getAll();
 		for (Book book : books) {
-			if (book.getBookID().equalsIgnoreCase(bookID))
+			if (book.getId().equalsIgnoreCase(bookID))
 				return book.getContent();
 		}
 		return null;
@@ -40,7 +40,7 @@ public class UserService {
 
 	// tra ve 1 sach theo id
 	public Book getBookDetail(String bookID) {
-		return daoBook.get(bookID);
+		return daoBook.getBookByID(bookID);
 	}
 
 	/*
@@ -100,18 +100,19 @@ public class UserService {
 	/*
 	 * Kiem tra: - co sach trong book case chua ko - Sach co ton tai ko Ok thi
 	 * return true, va them sach vao bookcase Ko thi false
+	 * Dung ham addBook trong DBBookCase de add book
 	 */
 	public boolean addBookToBookCase(String bookCaseID, String bookID) {
 		BookCase bookCase = daoBookCase.get(bookCaseID);
 		List<Book> booksInBookCase = bookCase.getBooks();
-		Book book1 = daoBook.get(bookID);
+		Book book1 = daoBook.getBookByID(bookID);
 		boolean check1 = false; // check xem sach co ton tai ko
 		boolean check2 = false; // check xem sach da co trong bookcase chua
 		if (book1 != null) {
 			check1 = true;
 		}
 		for (Book book : booksInBookCase) {
-			if (book.getBookID().equalsIgnoreCase(bookID)) {
+			if (book.getId().equalsIgnoreCase(bookID)) {
 				check2 = true;
 				break;
 			}
@@ -128,19 +129,29 @@ public class UserService {
 	/*
 	 * Kiem tra xem sach co trong bookcase chua Co thi return false Ko co thi remove va
 	 * return true
+	 * Dung ham removeBook trong dbBookCase de remove
 	 */
 	public boolean removeBookInBookCase(String bookCaseID, String bookID) {
 		BookCase bookCase = daoBookCase.get(bookCaseID);
 		List<Book> books = bookCase.getBooks();
 		Iterator<Book> iterator = books.iterator();
 		while (iterator.hasNext()) {
-			if (iterator.next().getBookID().equalsIgnoreCase(bookID)) {
+			if (iterator.next().getId().equalsIgnoreCase(bookID)) {
 				iterator.remove();
 				bookCase.setBooks(books);
 				daoBookCase.update(bookCase);
 				return true;
 			}
 		}
+		return false;
+	}
+
+	/*
+	* Xoa toan bo sach trong bookcase
+	* false neu ko co sach trong book case
+	* co ham clear trong dbbookcase
+	* */
+	public boolean clearBookCase (String bookCaseID) {
 		return false;
 	}
 
@@ -153,7 +164,7 @@ public class UserService {
 				"Author", "Category", "Brief", "Publisher");
 		for (int i = 0; i < books.size(); i++) {
 			Book book = books.get(i);
-			System.out.format("%-3d%-10s%-20s%-20s%-20s%-25s%-20s", (i+1), book.getBookID(), book.getTitle(), 
+			System.out.format("%-3d%-10s%-20s%-20s%-20s%-25s%-20s", (i+1), book.getId(), book.getTitle(),
 					book.getAuthor(), book.getCategory(), book.getBrief(), book.getPublisher());
 		}
 	} else System.out.println("There is not any book in application");
