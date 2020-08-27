@@ -1,12 +1,21 @@
 package abc.java05.model;
 
 public class Book {
+    private String id;
     private String title;
     private String author;
     private String brief;
     private String publisher;
     private String content;
     private String category;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

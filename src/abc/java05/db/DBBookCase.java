@@ -41,6 +41,7 @@ public class DBBookCase {
 
     /*
     * Them 1 gia tri vao bang contain
+    * Tu dong lay ngay hien tai
     * */
     public void addBook(String bookCaseID, String bookID) {
 
