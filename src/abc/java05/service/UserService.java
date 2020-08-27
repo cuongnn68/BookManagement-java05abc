@@ -164,7 +164,7 @@ public class UserService {
 	 */
 	public void displayBook(List<Book> books) {
 	if(books != null) {
-		System.out.format("%-3d%-10s%-20s%-20s%-20s%-25s%-20s", "STT", "id",	"Name", 
+		System.out.format("%-3s%-10s%-20s%-20s%-20s%-25s%-20s", "STT", "id",	"Name", 
 				"Author", "Category", "Brief", "Publisher");
 		for (int i = 0; i < books.size(); i++) {
 			Book book = books.get(i);
