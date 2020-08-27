@@ -1,7 +1,7 @@
 package abc.java05.model;
 
 public class Book {
-    private int bookID;
+    private String id;
     private String title;
     private String author;
     private String brief;
@@ -9,12 +9,23 @@ public class Book {
     private String content;
     private String category;
 
-    public int getBookID() {
-        return bookID;
+
+    public Book(){}
+    public Book(String title, String author, String brief, String publisher, String category, String content) {
+        this.title = title;
+        this.author = author;
+        this.brief = brief;
+        this.publisher = publisher;
+        this.content = content;
+        this.category = category;
     }
 
-    public void setBookID(int bookID) {
-        this.bookID = bookID;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

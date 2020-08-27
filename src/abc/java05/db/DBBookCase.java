@@ -41,6 +41,7 @@ public class DBBookCase {
 
     /*
     * Them 1 gia tri vao bang contain
+    * Tu dong lay ngay hien tai
     * */
     public void addBook(String bookCaseID, String bookID) {
 
@@ -54,7 +55,7 @@ public class DBBookCase {
     }
 
     /*
-    * Xoa toan bo gia tri co gia tri = bookCaseID
+    * Xoa toan bo gia tri co gia tri = bookCaseID trong contain table
     * */
     public void clearBook(String bookCaseID) {
 

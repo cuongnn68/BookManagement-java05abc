@@ -3,9 +3,19 @@ package abc.java05.model;
 import abc.java05.util.Role;
 
 public class User {
+    private String id;
     private String userName;
     private String password;
+    private String bookCaseID;
     private Role role;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getBookCaseID() {
         return bookCaseID;
@@ -14,8 +24,6 @@ public class User {
     public void setBookCaseID(String bookCaseID) {
         this.bookCaseID = bookCaseID;
     }
-
-    private String bookCaseID;
 
     public String getUserName() {
         return userName;

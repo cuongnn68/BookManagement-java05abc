@@ -4,6 +4,7 @@ import abc.java05.db.DBBook;
 import abc.java05.model.Book;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class AdminService {
     private DBBook dbBook = new DBBook();
@@ -12,13 +13,20 @@ public class AdminService {
     * Neu sach da ton tai tra ve false, ko add dc
     * Neu sach add dc them thi tra ve true
     * */
-    public boolean createBook() {
-        Book book = new Book();
-
-        /*
-        Enter book info:
-        */
-
+    public boolean createBook(Scanner scanner) {
+        System.out.print("Enter the title: ");
+        String title = scanner.nextLine();
+        System.out.print("Enter the author: ");
+        String author = scanner.nextLine();
+        System.out.print("Enter the brief: ");
+        String brief = scanner.nextLine();
+        System.out.print("Enter the publisher: ");
+        String publisher = scanner.nextLine();
+        System.out.print("Enter the category: ");
+        String category = scanner.nextLine();
+        System.out.println("Enter the content: ");
+        String content = scanner.nextLine();
+        Book book = new Book(title,author,brief,publisher,category,content);
         if(dbBook.save(book)){
             return true;
         }
