@@ -21,18 +21,18 @@ public class DBUser {
         return null;
     }
 
-    //ko dung, ko lam
-    public void save(User user) {
-
-    }
-
-    //ko dung, ko lam
-    public void update(User user) {
-
-    }
-
-    //ko dung, ko lam
-    public void delete(User user) {
-
-    }
+//    //ko dung, ko lam
+//    public void save(User user) {
+//
+//    }
+//
+//    //ko dung, ko lam
+//    public void update(User user) {
+//
+//    }
+//
+//    //ko dung, ko lam
+//    public void delete(User user) {
+//
+//    }
 }
