@@ -47,7 +47,7 @@ public class DBBook {
      * */
     public static Book getBookByID(String id) {
         Connection cons = DBConnect.getConnection();
-        String sql = "SELECT * FROM book_id =" + id;
+        String sql = "SELECT * FROM Book WHERE book_id =" + id;
         Book book = new Book();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -71,7 +71,7 @@ public class DBBook {
     // tìm bằng author
     public static List<Book> getBookByAuthor(String author) {
         Connection cons = DBConnect.getConnection();
-        String sql = "SELECT * FROM author=" + author;
+        String sql = "SELECT * FROM Book WHERE author=" + author;
         List<Book> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -98,7 +98,7 @@ public class DBBook {
     // tìm bằng title
     public static List<Book> getBookByName(String name) {
         Connection cons = DBConnect.getConnection();
-        String sql = "SELECT * FROM title=" + name;
+        String sql = "SELECT * FROM Book WHERE title=" + name;
         List<Book> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class DBBook {
     //tìm bằng category
     public static List<Book> getBookByCategory(String category) {
         Connection cons = DBConnect.getConnection();
-        String sql = "SELECT * FROM category=" + category;
+        String sql = "SELECT * FROM Book WHERE category=" + category;
         List<Book> list = new ArrayList<>();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
