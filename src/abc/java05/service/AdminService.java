@@ -40,8 +40,7 @@ public class AdminService {
     public boolean deleteBook(String bookID) {
         Book book = dbBook.getBookByID(bookID);
         if(book != null){
-            dbBook.delete(book);
-            return true;
+            return dbBook.delete(book);
         }
         return false;
     }
@@ -54,7 +53,7 @@ public class AdminService {
         Book book = dbBook.getBookByID(bookID);
         if(book != null){
             book.setContent(bookContent);
-            return true;
+            return dbBook.save(book);
         }
         return false;
     }

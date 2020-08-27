@@ -64,6 +64,7 @@ public class DBBook {
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
         return book;
     }

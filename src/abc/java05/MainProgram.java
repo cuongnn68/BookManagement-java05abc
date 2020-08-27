@@ -1,7 +1,9 @@
 package abc.java05;
 
 public class MainProgram {
-
+    public static void main(String[] args) {
+        ConsoleApp.run();
+    }
     /* TODO:
     1	Login	This function allows all users login application.
     2	Logout	This function allows all users out of application.
