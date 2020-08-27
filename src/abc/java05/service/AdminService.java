@@ -40,7 +40,7 @@ public class AdminService {
     public boolean deleteBook(String bookID) {
         Book book = dbBook.getBookByID(bookID);
         if(book != null){
-            return dbBook.delete(book);
+            return dbBook.delete(book.getId());
         }
         return false;
     }
