@@ -4,6 +4,7 @@ import abc.java05.db.DBBook;
 import abc.java05.model.Book;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class AdminService {
     private DBBook dbBook = new DBBook();
@@ -12,7 +13,7 @@ public class AdminService {
     * Neu sach da ton tai tra ve false, ko add dc
     * Neu sach add dc them thi tra ve true
     * */
-    public boolean createBook() {
+    public boolean createBook(Scanner scanner) {
         Book book = new Book();
 
         /*
