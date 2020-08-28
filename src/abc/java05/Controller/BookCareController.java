@@ -1,4 +1,4 @@
-package abc.java05.Controller;
+package abc.java05.controller;
 
 public class BookCareController {
 }

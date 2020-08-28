@@ -25,7 +25,3 @@
 ```git merge```	dùng cái vừa fetch về đề gộp vào bản mới, nếu có xung đột sẽ hiện thông báo và trong file sẽ có cả 2 phần code khác nhau, phần của mình và phần ở trên github, phải vào file code để chọn xem dùng những đoạn code nào và xóa phần ko dùng
  
 Có gắng kéo về trước khi push nhá,  xong r merge và push
-
-### Note
-- Ae viết mấy hàm trong package service dùng các hàm gọi từ database: DBBook, DBBookCase, DBUser (hoặc tạo thêm hàm nhưng ghi chú rõ yêu cầu cần querry gì từ database)
-- Làm xong phần nào của cái controller thì up lên ae xem
