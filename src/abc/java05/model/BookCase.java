@@ -6,7 +6,7 @@ import java.util.List;
 public class BookCase {
     private String id;
     private String name;
-//    private String createDate;// date
+    private String createDate;// date
     private List<Book> books = new ArrayList<>();
 
     public String getName() {
@@ -25,13 +25,13 @@ public class BookCase {
         this.id = id;
     }
 
-//    public String getCreateDate() {
-//        return createDate;
-//    }
-//
-//    public void setCreateDate(String createDate) {
-//        this.createDate = createDate;
-//    }
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 
     public List<Book> getBooks() {
         return books;
