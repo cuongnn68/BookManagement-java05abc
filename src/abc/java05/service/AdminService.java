@@ -48,7 +48,7 @@ public class AdminService {
         Book book = DBBook.getBookByID(bookID);
         if(book != null){
             book.setContent(bookContent);
-            return DBBook.save(book);
+            return DBBook.update(book);
         }
         return false;
     }

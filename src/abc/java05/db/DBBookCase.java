@@ -24,8 +24,8 @@ public class DBBookCase {
 	public BookCase get(String bookCaseID) {
 		String sql = "SELECT b.book_id,b.book_title,b.author,b.brief,b.publisher,b.content,b.category FROM Book b join Contain c "
 				+ "ON b.book_id=c.book_id WHERE c.book_case_id=" + bookCaseID;
-		BookCase bookcase = null;
-		List<Book> listBook = new ArrayList<Book>();
+		BookCase bookcase = new BookCase();
+		List<Book> listBook = new ArrayList<>();
 		//setBooks cho BookCase
 		try {
 			Connection conn = DBConnect.getConnection();
@@ -49,6 +49,8 @@ public class DBBookCase {
 			e.printStackTrace();
 			return null;
 		}
+
+
 		//setID va setName cho BookCase
 		String sql_bookcase = "SELECT * FROM BookCase WHERE book_case_id=" + bookCaseID;
 		try {
