@@ -2,11 +2,21 @@
 # Readme
 
 
-### Project
+## Project
 - jdk 1.8
 - database: sql server
 
-### Git cơ bản:
+## Connect to SQL Server
+
+#### Tạo tài khoản
+- Vào sql server management bằng windows authentications (mặc định)
+- Chọn Sercurity -> Chuột phải vào login -> new login
+- Chọn SQL Server authentication
+- Trong code java tài khoản là admin, pass là 1
+- Vào tab server Roles, chọn sysadmin (cho tiện)
+- OK
+
+## Git cơ bản:
 
 #### Tải code về máy: 
 ```git clone https://github.com/cuongnn68/BookManagement-java05abc```

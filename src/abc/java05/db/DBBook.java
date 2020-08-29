@@ -47,7 +47,7 @@ public class DBBook {
      * */
     public static Book getBookByID(String id) {
         Connection cons = DBConnect.getConnection();
-        String sql = "SELECT * FROM Book WHERE book_id =" + id;
+        String sql = "SELECT * FROM Book WHERE book_id = " + id;
         Book book = new Book();
         try {
             PreparedStatement ps = (PreparedStatement) cons.prepareStatement(sql);
@@ -157,8 +157,8 @@ public class DBBook {
      * */
     public static boolean save(Book book) {
         Connection cons = DBConnect.getConnection();
-        String sql = "INSERT INTO Book(book_id,category,content,publisher,brief,author,book_title)" +
-                " VALUES('" + book.getId() + "','" + book.getCategory() + "','" + book.getContent() + "','" + book.getPublisher() + "','" + book.getBrief() + "','" + book.getAuthor() + "','" + book.getTitle() + "')";
+        String sql = "INSERT INTO Book(category,content,publisher,brief,author,book_title)" +
+                " VALUES('" + book.getCategory() + "','" + book.getContent() + "','" + book.getPublisher() + "','" + book.getBrief() + "','" + book.getAuthor() + "','" + book.getTitle() + "')";
         try {
             Statement statement = cons.createStatement();
             int rs = statement.executeUpdate(sql);

@@ -10,6 +10,8 @@ import abc.java05.model.Book;
 import abc.java05.model.BookCase;
 import abc.java05.model.User;
 
+import static abc.java05.util.Constant.BOOK_FORMAT;
+
 public class UserService {
 	private DBBook daoBook = new DBBook();
 	private DBUser daoUser = new DBUser();
@@ -161,16 +163,15 @@ public class UserService {
 	/*
 	 * Hien thi book theo format tren console
 	 */
-	public void displayBook(List<Book> books) {
-	if(books != null) {
-		System.out.format("%-3s%-10s%-20s%-20s%-20s%-25s%-20s", "STT", "id",	"Name", 
-				"Author", "Category", "Brief", "Publisher");
-		for (int i = 0; i < books.size(); i++) {
-			Book book = books.get(i);
-			System.out.format("%-3d%-10s%-20s%-20s%-20s%-25s%-20s", (i+1), book.getId(), book.getTitle(),
-					book.getAuthor(), book.getCategory(), book.getBrief(), book.getPublisher());
-		}
-	} else System.out.println("There is not any book in application");
+	static public void displayBook(List<Book> books) {
+		if(books != null) {
+			System.out.format(BOOK_FORMAT + "\n", "STT", "id",	"Name", "Author", "Category", "Brief", "Publisher");
+			for (int i = 0; i < books.size(); i++) {
+				Book book = books.get(i);
+				System.out.format(BOOK_FORMAT + "\n", (i+1), book.getId(), book.getTitle(),
+						book.getAuthor(), book.getCategory(), book.getBrief(), book.getPublisher());
+			}
+		} else System.out.println("There is not any book in application");
 	}
 
 }
