@@ -93,26 +93,25 @@ VALUES ('NamNT56',	'nguyenthanhnam'	,1),
 	   ('RinhTT',	'trantherinh'		,8),
 	   ('admin',	'11111111'			, null);
 
--- 0 user, 1 admin
+-- 1 user, 0 admin
 INSERT INTO [Role](UserID, authority)
-VALUES	(1, 0),
-		(2, 0),
-		(3, 0),
-		(4, 0),
-		(5, 0),
-		(6, 0),
-		(7, 0),
-		(8, 0),
-		(9, 1);
+VALUES	(1, 1),
+		(2, 1),
+		(3, 1),
+		(4, 1),
+		(5, 1),
+		(6, 1),
+		(7, 1),
+		(8, 1),
+		(9, 0);
 
 DELETE FROM Book;
 
 -- sách văn hóa
 INSERT INTO Book (book_title,author,brief,publisher,content,category) VALUES 
-(	N'Ăn Và Uống Của Người Việt',N'Vũ Ngọc Khánh - Hoàng Khôi',
-	N'Cái ăn... mà nhất là tiếng “ăn”của Việt Nam bao gồm nhiều tầng ý nghĩa hoàn toàn khác với cái ăn, tiếng ăn của nhân loại. Cái khác ấy có làm nên bản sắc Việt không tùy vào sự nhận xét và đánh giá của từng người, nhưng vấn đề “ăn” thì cần được nghiên cứu, tìm hiểu công phu hơn nữa.
-
-Khi trình bày với bạn đọc cuốn sách Ăn Và Uống Của Người Việt này, các tác giả mong muốn đi từ bữa ăn trong một gia đình đến bữa ăn của cả cộng đồng, rồi việc ăn, việc uống trong lịch sử để từ đó nghĩ đến vấn đề ẩm thực của 54 dân tộc ở khắp Bắc, Trung, Nam chứ không riêng gì xứ nào.',N'NXB Văn Hóa',
+(	N'Ăn Và Uống Của Người Việt',
+	N'Vũ Ngọc Khánh - Hoàng Khôi',
+	N'Cái ăn... mà nhất là tiếng “ăn”của Việt Nam bao gồm nhiều tầng ý nghĩa hoàn toàn khác với cái ăn, tiếng ăn của nhân loại. Cái khác ấy có làm nên bản sắc Việt không tùy vào sự nhận xét và đánh giá của từng người, nhưng vấn đề “ăn” thì cần được nghiên cứu, tìm hiểu công phu hơn nữa. Khi trình bày với bạn đọc cuốn sách Ăn Và Uống Của Người Việt này, các tác giả mong muốn đi từ bữa ăn trong một gia đình đến bữa ăn của cả cộng đồng, rồi việc ăn, việc uống trong lịch sử để từ đó nghĩ đến vấn đề ẩm thực của 54 dân tộc ở khắp Bắc, Trung, Nam chứ không riêng gì xứ nào.',N'NXB Văn Hóa',
 	N'Ăn mặc là chuyện bình thường trong đời sống con người. Chúng ta thường chỉ quan tâm đến khi có việc bất thường xảy ra, hoặc khi nó trở thành một vấn đề chuyên môn, vấn đề kỹ thuật. Nhưng thật ra, một việc như việc ăn chẳng hạn, xét cả bề sâu lẫn chiều rộng thì quả là một hiện tượng, một đề tài văn hóa lớn. Riêng đối với dân tộc ta thì hình như chuyện “ăn ” còn được mở rộng hơn. Không phải chỉ bao gồm những gì liên quan đến sự sống, mà còn là cả (hay tất cả) những gì thuộc về phong tục, về thẩm mỹ, về ngôn ngữ, về triết học và về tâm linh',
 	N'Văn Hóa - Tôn Giáo'),
 	   
@@ -403,3 +402,5 @@ VALUES	('1','1'),('1','2'),('1','3'),('1','4'),('1','5'),
 		('4','16'),('4','17'),('4','18'),('4','19'),('4','20'),
 		('5','21'),('5','22'),('5','23'),('5','24'),('5','25'),
 		('6','26'),('6','27'),('6','28'),('6','29'),('6','30');
+
+
