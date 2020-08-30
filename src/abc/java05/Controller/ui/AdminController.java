@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -79,23 +80,60 @@ public class AdminController implements Initializable {
         return olBooks;
     }
 
-    public void createBook() {
+    @FXML
+    private void createBook() throws IOException {
+        Book newBook = new Book();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/abc/java05/view/InputBook.fxml"));
+        Parent root = fxmlLoader.load();
 
+        InputBookController ibController = fxmlLoader.getController();
+        ibController.setBook(newBook);
+
+        Stage popup = new Stage();
+        popup.setTitle("Create new book");
+        popup.initModality(Modality.APPLICATION_MODAL);
+        popup.setScene(new Scene(root));
+        popup.showAndWait();
+
+        aService.createBook(newBook);
+        bookTable.setItems(getBooks());
     }
 
-    public void deleteBook() {
+    @FXML
+    private void deleteBook() {
         Book book = bookTable.getSelectionModel().getSelectedItem();
         aService.deleteBook(book.getId());
         bookTable.getItems().remove(book);
     }
 
-    public void updateBook() {
+    @FXML
+    private void updateBook() throws IOException {
+        Book book = bookTable.getSelectionModel().getSelectedItem();
+        if(book == null) {
+            return;
+        }
 
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/abc/java05/view/InputBook.fxml"));
+        Parent root = fxmlLoader.load();
+
+        InputBookController ibController = fxmlLoader.getController();
+        ibController.setBook(book);
+        ibController.showBook();
+
+        Stage popup = new Stage();
+        popup.initModality(Modality.APPLICATION_MODAL);
+        popup.setScene(new Scene(root));
+        popup.setTitle("Update book");
+        popup.showAndWait();
+        aService.updateBook(book);
+        bookTable.setItems(getBooks());
     }
 
-    public void logut () throws IOException {
+    @FXML
+    private void logout() throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
         Stage now =  (Stage) adminLabel.getScene().getWindow();
+        now.setTitle("Login");
         now.setScene(new Scene(p));
     }
 }

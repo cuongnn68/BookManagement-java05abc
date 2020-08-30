@@ -34,7 +34,7 @@
                   <Button mnemonicParsing="false" text="Create" fx:id="createButton" onAction="#createBook"/>
                   <Button mnemonicParsing="false" text="Delete" fx:id="deleteButton" onAction="#deleteBook"/>
                   <Button mnemonicParsing="false" text="Update" fx:id="updateButton" onAction="#updateBook"/>
-                  <Button mnemonicParsing="false" text="Logout" fx:id="logoutButton" onAction="#logut"/>
+                  <Button mnemonicParsing="false" text="Logout" fx:id="logoutButton" onAction="#logout"/>
                </children>
             </HBox>
          </children>

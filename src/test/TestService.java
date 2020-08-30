@@ -1,7 +1,6 @@
 package test;
 
 import abc.java05.model.Book;
-import abc.java05.model.BookCase;
 import abc.java05.service.AdminService;
 import abc.java05.service.UserService;
 
@@ -61,7 +60,7 @@ public class TestService {
 
         adminS.createBook(newBook);
         System.out.println(adminS.deleteBook("20")); // not ok ko chay vi user service ko chay;
-        System.out.println(adminS.updateBook("10", "ê ó ẫ ờ")); // not ok ko thay doi nd
+        System.out.println(adminS.updateBookContent("10", "ê ó ẫ ờ")); // not ok ko thay doi nd
         UserService.displayBook(userS.viewAllBooks());
         System.out.println(userS.readBook("10"));
     }

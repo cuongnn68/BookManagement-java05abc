@@ -6,6 +6,7 @@ import abc.java05.util.Role;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,8 +17,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
     @FXML
     private VBox loginBox;
 
@@ -33,7 +36,13 @@ public class LoginController {
     @FXML
     private Label error;
 
-    public void login (ActionEvent event) throws IOException {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+//        ((Stage) usernameField.getScene().getWindow()).setTitle("Login"); //not working
+    }
+
+    @FXML
+    private void login (ActionEvent event) throws IOException {
 //        System.out.println("login");
 //        System.out.println(usernameField.getText());
 //        System.out.println(passwordField.getText());
@@ -51,10 +60,11 @@ public class LoginController {
                 System.out.println("jump to new windows");
 
 //                Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                Stage stageTheLabelBelongs = (Stage) usernameField.getScene().getWindow();
+                Stage stageNow = (Stage) usernameField.getScene().getWindow();
                 Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/AdminUI.fxml"));
-                stageTheLabelBelongs.setScene(new Scene(p));
-//                stageTheLabelBelongs.setScene(p.getScene()); // not work but dont know why
+                stageNow.setTitle("Admin");
+                stageNow.setScene(new Scene(p));
+//                stageNow.setScene(p.getScene()); // not work but dont know why
 
 
             } else if(user.getRole() == Role.USER) {
