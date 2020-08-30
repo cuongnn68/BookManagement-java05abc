@@ -53,7 +53,7 @@ create table [Role](
 
 create table Book(
 	book_id			int IDENTITY(1,1) PRIMARY KEY,
-	book_title		nvarchar(50) UNIQUE,
+	book_title		nvarchar(50),
 	author			nvarchar(50),
 	brief			nvarchar(max),
 	publisher		nvarchar(50),

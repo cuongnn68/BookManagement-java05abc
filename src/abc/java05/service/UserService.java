@@ -48,11 +48,12 @@ public class UserService {
 	 * lay het book tu database ve r search ?? Neu ko co thi tra ve 1 list size = 0
 	 */
 	public List<Book> searchBookByName(String bookName) {
+		bookName = ".*" + bookName + ".*";
 		List<Book> books = daoBook.getAll();
 		List<Book> booksByName = new ArrayList<>();
 		if (books != null) {
 			for (Book book : books) {
-				if (book.getTitle().equalsIgnoreCase(bookName))
+				if (book.getTitle().matches(bookName))
 					booksByName.add(book);
 			}
 		}
@@ -60,11 +61,12 @@ public class UserService {
 	}
 
 	public List<Book> searchBookByAuthor(String author) {
+		author = ".*" + author + ".*";
 		List<Book> books = daoBook.getAll();
 		List<Book> booksByAuthor = new ArrayList<>();
 		if (books != null) {
 			for (Book book : books) {
-				if (book.getAuthor().equalsIgnoreCase(author))
+				if (book.getAuthor().matches(author))
 					booksByAuthor.add(book);
 			}
 		}
@@ -72,11 +74,12 @@ public class UserService {
 	}
 
 	public List<Book> searchBookByCategory(String category) {
+		category = ".*" + category + ".*";
 		List<Book> books = daoBook.getAll();
 		List<Book> booksByCategory = new ArrayList<>();
 		if (books != null) {
 			for (Book book : books) {
-				if (book.getCategory().equalsIgnoreCase(category))
+				if (book.getCategory().matches(category))
 					booksByCategory.add(book);
 			}
 		}

@@ -4,17 +4,28 @@
 
 ## Project
 - jdk 1.8
-- database: sql server
+- database: sql server 
+- jdbc driver sql server jre 8
 
-## Connect to SQL Server
+## Kết nối đến SQL Server
 
 #### Tạo tài khoản
-- Vào sql server management bằng windows authentications (mặc định)
+- Vào sql server management bằng tài khoản windows authentications (mặc định)
 - Chọn Sercurity -> Chuột phải vào login -> new login
 - Chọn SQL Server authentication
 - Trong code java tài khoản là admin, pass là 1
 - Vào tab server Roles, chọn sysadmin (cho tiện)
 - OK
+
+#### Bật giao thức kết nối của sql server
+- Bật SQL server configuration manager
+- Chọn Sql server services, SQL Server -> Stopped (dừng db)
+- Chọn SQL native client 11.0 Configuration -> Client protocol -> Enable tất cả
+- Bật lại SQL server
+
+#### JDBC Driver SQL Server 
+https://docs.microsoft.com/vi-vn/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server
+
 
 ## Git cơ bản:
 
