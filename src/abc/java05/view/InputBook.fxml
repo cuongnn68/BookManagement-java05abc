@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="abc.java05.controller.ui.InputBookController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TextField promptText="Title" fx:id="title"/>
+        <TextField promptText="Author" fx:id="author"/>
+        <TextField promptText="Category" fx:id="category"/>
+        <TextField promptText="Publisher" fx:id="publisher"/>
+        <TextField promptText="Brief"
+                   minHeight="100" fx:id="brief"/>
+        <TextField promptText="Content"
+                   minHeight="300" fx:id="content"/>
+        <Button text="OK" fx:id="okButton" onAction="#returnBook"/>
+    </children>
+
+</VBox>

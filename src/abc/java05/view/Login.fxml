@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="loginBox" alignment="CENTER" prefHeight="300" prefWidth="450" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abc.java05.controller.ui.LoginController">
+   <children>
+      <Label alignment="CENTER" prefHeight="25.0" prefWidth="288.0" text="Reading Book Manegement" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Region prefHeight="0.0" prefWidth="377.0" />
+      <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="User name" />
+      <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Password" />
+      <Label fx:id="error" text="" textFill="darkred" />
+      <Button fx:id="loginButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="78.0" text="Login" />
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</VBox>

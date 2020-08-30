@@ -44,12 +44,19 @@ public class AdminService {
     * Cap nhat nd quyen sach
     * Sach ko ton tai tra ve false
     * */
-    public boolean updateBook(String bookID, String bookContent) {
+    public boolean updateBookContent(String bookID, String bookContent) {
         Book book = DBBook.getBookByID(bookID);
         if(book != null){
             book.setContent(bookContent);
             return DBBook.update(book);
         }
         return false;
+    }
+
+    public boolean updateBook(Book book) {
+        if(book == null) {
+            return false;
+        }
+        return DBBook.update(book);
     }
 }

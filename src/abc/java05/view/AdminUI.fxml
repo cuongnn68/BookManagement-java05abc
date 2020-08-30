@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="abc.java05.controller.ui.AdminController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Label" fx:id="adminLabel">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTable">
+              <columns>
+                  <TableColumn prefWidth="75.0" text="ID" fx:id="cID"/>
+                  <TableColumn prefWidth="75.0" text="Title" fx:id="cTitle"/>
+                  <TableColumn prefWidth="75.0" text="Author" fx:id="cAuthor"/>
+                  <TableColumn prefWidth="200" text="Brief" fx:id="cBrief"/>
+                  <TableColumn prefWidth="75.0" text="Publisher" fx:id="cPublisher"/>
+                  <TableColumn prefWidth="75.0" text="Category" fx:id="cCategory"/>
+              </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Create" fx:id="createButton" onAction="#createBook"/>
+                  <Button mnemonicParsing="false" text="Delete" fx:id="deleteButton" onAction="#deleteBook"/>
+                  <Button mnemonicParsing="false" text="Update" fx:id="updateButton" onAction="#updateBook"/>
+                  <Button mnemonicParsing="false" text="Logout" fx:id="logoutButton" onAction="#logout"/>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

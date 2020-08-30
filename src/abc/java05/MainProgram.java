@@ -2,7 +2,8 @@ package abc.java05;
 
 public class MainProgram {
     public static void main(String[] args) {
-        ConsoleApp.run();
+//        ConsoleApp.run();
+        GUIApp.run(args);
     }
     /* TODO:
     1	Login	This function allows all users login application.
