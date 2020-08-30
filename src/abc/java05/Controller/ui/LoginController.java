@@ -57,18 +57,22 @@ public class LoginController implements Initializable {
                 error.setText("Account dont exists");
             } else if(user.getRole() == Role.ADMIN) {
                 error.setText("");
-                System.out.println("jump to new windows");
-
-//                Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Stage stageNow = (Stage) usernameField.getScene().getWindow();
                 Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/AdminUI.fxml"));
                 stageNow.setTitle("Admin");
                 stageNow.setScene(new Scene(p));
-//                stageNow.setScene(p.getScene()); // not work but dont know why
-
-
             } else if(user.getRole() == Role.USER) {
+                error.setText("");
+                Stage stageNow = (Stage) usernameField.getScene().getWindow();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/abc/java05/view/UserUI.fxml"));
+                Parent p = fxmlLoader.load();
 
+                UserController uController = fxmlLoader.getController();
+//                uController.setUser(user);
+                uController.realInitialize(user);
+
+                stageNow.setTitle(user.getUserName());
+                stageNow.setScene(new Scene(p));
             } else {
                 error.setText("account cant access");
             }

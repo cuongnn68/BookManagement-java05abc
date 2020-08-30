@@ -41,7 +41,7 @@ create table BookCase(
 create table [User](
 	UserID			int IDENTITY(1,1) PRIMARY KEY,
 	[user_name]		nvarchar(50) NOT NULL UNIQUE,
-	[password]		nvarchar(30) NOT NULL UNIQUE CHECK (Len([password]) >= 8),
+	[password]		nvarchar(30) NOT NULL CHECK (Len([password]) >= 8),
 	book_case_id	int references BookCase(book_case_id)
 )
 
@@ -87,7 +87,7 @@ VALUES ('NamNT56',	'nguyenthanhnam'	,1),
 	   ('HuynhDV1',	'doanvanhuynh'		,2),
 	   ('NinhND1',	'nguyenduyninh'		,3),
 	   ('TuongND4',	'nguyenduytuong'	,4),
-	   ('CuongNN5',	'nguyennhucuong'	,5),
+	   ('CuongNN5',	'11111111'			,5),
 	   ('ChienPV5',	'phamvanchien'		,6),
 	   ('AnhTHT2',	'tranhatuananh'		,7),
 	   ('RinhTT',	'trantherinh'		,8),

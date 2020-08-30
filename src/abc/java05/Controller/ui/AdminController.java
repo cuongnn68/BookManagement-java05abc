@@ -102,6 +102,9 @@ public class AdminController implements Initializable {
     @FXML
     private void deleteBook() {
         Book book = bookTable.getSelectionModel().getSelectedItem();
+        if(book == null) {
+            return;
+        }
         aService.deleteBook(book.getId());
         bookTable.getItems().remove(book);
     }

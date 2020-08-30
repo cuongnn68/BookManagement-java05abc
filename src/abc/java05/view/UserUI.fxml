@@ -2,57 +2,77 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.4899665551839465" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
-  <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="abc.java05.controller.ui.UserController">
+   <children>
+      <AnchorPane maxWidth="150.0" minWidth="150.0" prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="400.0" prefWidth="232.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutY="80.0" prefHeight="200.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label text="Label" />
-                  <TableView prefHeight="200.0" prefWidth="135.0">
-                     <columns>
-                        <TableColumn prefWidth="40.0" text="ID" />
-                        <TableColumn prefWidth="110.0" text="Title" />
-                     </columns>
-                  </TableView>
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Bookshelf" fx:id="buttonTabBookshelf" onAction="#bookSelfTab"/>
+                  <Button mnemonicParsing="false" text="All books" fx:id="buttonTabAll" onAction="#allBookTab"/>
+                  <Button mnemonicParsing="false" text="Logout" fx:id="buttonLogout" onAction="#logout"/>
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <StackPane layoutX="250.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" fx:id="paneBookshelf">
                <children>
-                  <TextField promptText="Title" />
-                  <TextField promptText="Author" />
-                  <TextField promptText="Publisher" />
-                  <TextField promptText="Category" />
-                  <TextField promptText="Brief" />
-                  <AnchorPane prefHeight="200.0" prefWidth="302.0">
+                  <Label text="Bookshelf" />
+                  <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTableCase">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="ID" fx:id="cIDCase"/>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="cTitleCase"/>
+                        <TableColumn prefWidth="75.0" text="Author" fx:id="cAuthorCase"/>
+                        <TableColumn prefWidth="200" text="Brief" fx:id="cBriefCase"/>
+                        <TableColumn prefWidth="75.0" text="Publisher" fx:id="cPublisherCase"/>
+                        <TableColumn prefWidth="75.0" text="Category" fx:id="cCategoryCase"/>
+                     </columns>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="91.0" layoutY="75.0" prefHeight="200.0" prefWidth="302.0" promptText="Content" AnchorPane.bottomAnchor="-76.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button mnemonicParsing="false" text="Read" fx:id="buttonReadCase" onAction="#readCase"/>
+                        <Button mnemonicParsing="false" text="Remove" fx:id="buttonRemoveCase" onAction="#removeCase"/>
                      </children>
-                  </AnchorPane>
-                  <Region prefHeight="92.0" prefWidth="302.0" />
-                  <HBox>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" fx:id="paneAll">
+               <children>
+                  <Label text="All books" />
+                  <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTableAll">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="ID" fx:id="cIDAll"/>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="cTitleAll"/>
+                        <TableColumn prefWidth="75.0" text="Author" fx:id="cAuthorAll"/>
+                        <TableColumn prefWidth="200" text="Brief" fx:id="cBriefAll"/>
+                        <TableColumn prefWidth="75.0" text="Publisher" fx:id="cPublisherAll"/>
+                        <TableColumn prefWidth="75.0" text="Category" fx:id="cCategoryAll"/>
+                     </columns>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button" />
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" text="Read" fx:id="buttonReadAll" onAction="#readAll"/>
+                        <Button mnemonicParsing="false" text="Add" fx:id="buttonAdd2Case" onAction="#add2Case"/>
+                        <TextField promptText="Title, author, category" fx:id="searchField" />
+                        <Button mnemonicParsing="false" text="Search" fx:id="buttonSearch" onAction="#searchBook"/>
                      </children>
                   </HBox>
                </children>
             </VBox>
          </children>
-      </AnchorPane>
-  </items>
-</SplitPane>
+      </StackPane>
+   </children>
+</AnchorPane>
