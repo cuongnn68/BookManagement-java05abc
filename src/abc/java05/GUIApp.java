@@ -14,7 +14,7 @@ public class GUIApp  extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
         primaryStage.setTitle("Test title login");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
