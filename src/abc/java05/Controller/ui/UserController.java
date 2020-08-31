@@ -13,6 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -89,6 +92,8 @@ public class UserController implements Initializable {
     @FXML
     private Button buttonAdd2Case;
     @FXML
+    private Region space;
+    @FXML
     private TextField searchField;
     @FXML
     private Button buttonSearch;
@@ -124,6 +129,9 @@ public class UserController implements Initializable {
         uService = new UserService();
         bookCase = uService.viewBookCase(user.getId());
         bookSelfTab();
+        VBox.setVgrow(bookTableCase, Priority.ALWAYS);
+        VBox.setVgrow(bookTableAll, Priority.ALWAYS);
+        HBox.setHgrow(space, Priority.ALWAYS);
     }
 
     private ObservableList<Book> getAllBooks() {
@@ -148,7 +156,7 @@ public class UserController implements Initializable {
         //TODO: do read
         Stage read = new Stage();
         Label content = new Label(book.getContent());
-//        content.setMaxWidth(180);
+        content.setMaxWidth(400);
         content.setWrapText(true);
         Scene readScene = new Scene(content);
         read.setTitle(book.getTitle());
@@ -223,7 +231,7 @@ public class UserController implements Initializable {
     private void logout() throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
         Stage now =  (Stage) buttonLogout.getScene().getWindow();
-        now.setTitle("Login");
+        ConfigStage.loginWindow(now);
         now.setScene(new Scene(p));
     }
 

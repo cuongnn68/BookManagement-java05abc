@@ -8,39 +8,68 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="abc.java05.controller.ui.AdminController">
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.261"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="abc.java05.controller.ui.AdminController" >
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0"
-            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="Label" fx:id="adminLabel">
+<!--      <VBox  prefHeight="200.0" prefWidth="100.0" fx:id="wrap"-->
+<!--            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">-->
+<!--         <children>-->
+            <Label fx:id="adminLabel" maxHeight="80" minHeight="80" text="Books data" textAlignment="CENTER"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Microsoft YaHei" size="34.0" />
+               </font>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-            </Label>
-            <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTable">
-              <columns>
-                  <TableColumn prefWidth="75.0" text="ID" fx:id="cID"/>
-                  <TableColumn prefWidth="75.0" text="Title" fx:id="cTitle"/>
-                  <TableColumn prefWidth="75.0" text="Author" fx:id="cAuthor"/>
-                  <TableColumn prefWidth="200" text="Brief" fx:id="cBrief"/>
-                  <TableColumn prefWidth="75.0" text="Publisher" fx:id="cPublisher"/>
-                  <TableColumn prefWidth="75.0" text="Category" fx:id="cCategory"/>
-              </columns>
+               <padding>
+                  <Insets left="20.0" />
+               </padding></Label>
+            <TableView fx:id="bookTable" prefHeight="400.0" prefWidth="200.0" maxHeight="Infinity" maxWidth="Infinity"
+                       AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                <columns>
+                    <TableColumn fx:id="cID" prefWidth="75.0" text="ID" />
+                    <TableColumn fx:id="cTitle" prefWidth="75.0" text="Title" />
+                    <TableColumn fx:id="cAuthor" prefWidth="75.0" text="Author" />
+                    <TableColumn fx:id="cBrief" prefWidth="200" text="Brief" />
+                    <TableColumn fx:id="cPublisher" prefWidth="75.0" text="Publisher" />
+                    <TableColumn fx:id="cCategory" prefWidth="75.0" text="Category" />
+                </columns>
             </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Create" fx:id="createButton" onAction="#createBook"/>
-                  <Button mnemonicParsing="false" text="Delete" fx:id="deleteButton" onAction="#deleteBook"/>
-                  <Button mnemonicParsing="false" text="Update" fx:id="updateButton" onAction="#updateBook"/>
-                  <Button mnemonicParsing="false" text="Logout" fx:id="logoutButton" onAction="#logout"/>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+            <GridPane prefHeight="50" minHeight="50" maxHeight="50" fx:id="buttons"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="25" />
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="25" />
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="25"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="25" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints percentHeight="100.0" vgrow="ALWAYS" />
+                </rowConstraints>
+                <children>
+                    <Button maxWidth="Infinity" maxHeight="Infinity" fx:id="createButton" mnemonicParsing="false" onAction="#createBook" text="Create" GridPane.columnIndex="0"/>
+                    <Button maxWidth="Infinity" maxHeight="Infinity" fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteBook" text="Delete" GridPane.columnIndex="1"/>
+                    <Button maxWidth="Infinity" maxHeight="Infinity" fx:id="updateButton" mnemonicParsing="false" onAction="#updateBook" text="Update" GridPane.columnIndex="2"/>
+                    <Button maxWidth="Infinity" maxHeight="Infinity" fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" text="Logout" GridPane.columnIndex="3"/>
+                </children>
+            </GridPane>
+
+
+<!--            <HBox fx:id="buttons" prefHeight="100.0" prefWidth="200.0" >-->
+<!--               <children>-->
+<!--                  <Button fx:id="createButton" minWidth="${buttons.width}" maxWidth="" mnemonicParsing="false" onAction="#createBook" text="Create" />-->
+<!--                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteBook" text="Delete" />-->
+<!--                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateBook" text="Update" />-->
+<!--                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" text="Logout" />-->
+<!--               </children>-->
+<!--            </HBox>-->
+<!--         </children>-->
+<!--      </VBox>-->
    </children>
 </AnchorPane>

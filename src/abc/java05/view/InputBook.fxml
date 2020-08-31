@@ -15,9 +15,9 @@
         <TextField promptText="Author" fx:id="author"/>
         <TextField promptText="Category" fx:id="category"/>
         <TextField promptText="Publisher" fx:id="publisher"/>
-        <TextField promptText="Brief"
+        <TextArea promptText="Brief"
                    minHeight="100" fx:id="brief"/>
-        <TextField promptText="Content"
+        <TextArea promptText="Content"
                    minHeight="300" fx:id="content"/>
         <Button text="OK" fx:id="okButton" onAction="#returnBook"/>
     </children>
