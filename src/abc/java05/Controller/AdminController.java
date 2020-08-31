@@ -1,4 +1,4 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.Book;
 import abc.java05.service.AdminService;
@@ -15,7 +15,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -145,7 +144,8 @@ public class AdminController implements Initializable {
     private void logout() throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
         Stage now =  (Stage) adminLabel.getScene().getWindow();
-        ConfigStage.loginWindow(now);
-        now.setScene(new Scene(p));
+        Scene scene = new Scene(p);
+        ConfigStage.loginWindow(now, scene);
+        now.setScene(scene);
     }
 }

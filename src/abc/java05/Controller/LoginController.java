@@ -1,4 +1,4 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.User;
 import abc.java05.service.Login;
@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -56,8 +55,9 @@ public class LoginController implements Initializable {
                 error.setText("");
                 Stage stageNow = (Stage) usernameField.getScene().getWindow();
                 Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/AdminUI.fxml"));
-                ConfigStage.adminWindow(stageNow);
-                stageNow.setScene(new Scene(p));
+                Scene scene = new Scene(p);
+                ConfigStage.adminWindow(stageNow, scene);
+                stageNow.setScene(scene);
             } else if(user.getRole() == Role.USER) {
                 error.setText("");
                 Stage stageNow = (Stage) usernameField.getScene().getWindow();
@@ -65,9 +65,10 @@ public class LoginController implements Initializable {
                 Parent p = fxmlLoader.load();
                 UserController uController = fxmlLoader.getController();
                 uController.realInitialize(user);
-                ConfigStage.userWindow(stageNow);
+                Scene scene = new Scene(p);
+                ConfigStage.userWindow(stageNow, scene);
                 stageNow.setTitle(user.getUserName());
-                stageNow.setScene(new Scene(p));
+                stageNow.setScene(scene);
             } else {
                 error.setText("account cant access");
             }

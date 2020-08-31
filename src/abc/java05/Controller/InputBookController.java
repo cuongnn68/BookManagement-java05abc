@@ -1,4 +1,4 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.Book;
 import javafx.fxml.FXML;

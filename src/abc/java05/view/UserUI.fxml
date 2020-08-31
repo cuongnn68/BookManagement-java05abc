@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Region?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="abc.java05.controller.ui.UserController">
+            fx:controller="abc.java05.controller.UserController">
    <children>
       <AnchorPane maxWidth="150.0" minWidth="150.0" prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="buttonSide">
          <children>
