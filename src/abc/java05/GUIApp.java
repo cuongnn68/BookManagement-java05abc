@@ -1,5 +1,6 @@
 package abc.java05;
 
+import abc.java05.controller.ConfigStage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +16,9 @@ public class GUIApp  extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("Login");
+        Scene scene = new Scene(root);
+        ConfigStage.loginWindow(primaryStage, scene);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

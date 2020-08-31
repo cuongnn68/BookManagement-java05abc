@@ -1,4 +1,4 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.User;
 import abc.java05.service.Login;
@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,9 +42,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private void login (ActionEvent event) throws IOException {
-//        System.out.println("login");
-//        System.out.println(usernameField.getText());
-//        System.out.println(passwordField.getText());
         String username = usernameField.getText();
         String password = passwordField.getText();
         if(username.isEmpty() || password.isEmpty()) {
@@ -54,25 +50,25 @@ public class LoginController implements Initializable {
             Login login = new Login();
             User user = login.checkAccount(username, password);
             if(user == null) {
-                error.setText("Account dont exists");
+                error.setText("Account dont exists or wrong password");
             } else if(user.getRole() == Role.ADMIN) {
                 error.setText("");
                 Stage stageNow = (Stage) usernameField.getScene().getWindow();
                 Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/AdminUI.fxml"));
-                stageNow.setTitle("Admin");
-                stageNow.setScene(new Scene(p));
+                Scene scene = new Scene(p);
+                ConfigStage.adminWindow(stageNow, scene);
+                stageNow.setScene(scene);
             } else if(user.getRole() == Role.USER) {
                 error.setText("");
                 Stage stageNow = (Stage) usernameField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/abc/java05/view/UserUI.fxml"));
                 Parent p = fxmlLoader.load();
-
                 UserController uController = fxmlLoader.getController();
-//                uController.setUser(user);
                 uController.realInitialize(user);
-
+                Scene scene = new Scene(p);
+                ConfigStage.userWindow(stageNow, scene);
                 stageNow.setTitle(user.getUserName());
-                stageNow.setScene(new Scene(p));
+                stageNow.setScene(scene);
             } else {
                 error.setText("account cant access");
             }

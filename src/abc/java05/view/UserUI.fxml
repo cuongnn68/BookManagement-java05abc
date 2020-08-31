@@ -11,17 +11,24 @@
 
 
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Region?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="abc.java05.controller.ui.UserController">
+            fx:controller="abc.java05.controller.UserController">
    <children>
-      <AnchorPane maxWidth="150.0" minWidth="150.0" prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane maxWidth="150.0" minWidth="150.0" prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="buttonSide">
          <children>
             <VBox layoutY="80.0" prefHeight="200.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Button mnemonicParsing="false" text="Bookshelf" fx:id="buttonTabBookshelf" onAction="#bookSelfTab"/>
-                  <Button mnemonicParsing="false" text="All books" fx:id="buttonTabAll" onAction="#allBookTab"/>
-                  <Button mnemonicParsing="false" text="Logout" fx:id="buttonLogout" onAction="#logout"/>
+                  <Button minWidth="150.0" maxWidth="150.0" minHeight="50" maxHeight="50" mnemonicParsing="false" text="Bookshelf"
+                          fx:id="buttonTabBookshelf" onAction="#bookSelfTab"/>
+                  <Button minWidth="150.0" maxWidth="150.0" minHeight="50" maxHeight="50" mnemonicParsing="false" text="All books"
+                          fx:id="buttonTabAll" onAction="#allBookTab"/>
+                  <Button minWidth="150.0" maxWidth="150.0" minHeight="50" maxHeight="50" mnemonicParsing="false" text="Logout"
+                          fx:id="buttonLogout" onAction="#logout"/>
                </children>
             </VBox>
          </children>
@@ -31,7 +38,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0" fx:id="paneBookshelf">
                <children>
                   <Label text="Bookshelf" />
-                  <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTableCase">
+                  <TableView prefHeight="400.0" prefWidth="200.0" fx:id="bookTableCase" maxWidth="Infinity" maxHeight="Infinity">
                      <columns>
                         <TableColumn prefWidth="75.0" text="ID" fx:id="cIDCase"/>
                         <TableColumn prefWidth="75.0" text="Title" fx:id="cTitleCase"/>
@@ -41,12 +48,19 @@
                         <TableColumn prefWidth="75.0" text="Category" fx:id="cCategoryCase"/>
                      </columns>
                   </TableView>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <GridPane prefHeight="50" minHeight="50" maxHeight="50" prefWidth="200.0">
+                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50" halignment="CENTER" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="50" halignment="CENTER" hgrow="ALWAYS"/>
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints percentHeight="100" valignment="CENTER" vgrow="ALWAYS"/>
+                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Read" fx:id="buttonReadCase" onAction="#readCase"/>
-                        <Button mnemonicParsing="false" text="Remove" fx:id="buttonRemoveCase" onAction="#removeCase"/>
+                        <Button GridPane.columnIndex="0" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="Read" fx:id="buttonReadCase" onAction="#readCase"/>
+                        <Button GridPane.columnIndex="1" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="Remove" fx:id="buttonRemoveCase" onAction="#removeCase"/>
                      </children>
-                  </HBox>
+                  </GridPane>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" fx:id="paneAll">
@@ -62,12 +76,13 @@
                         <TableColumn prefWidth="75.0" text="Category" fx:id="cCategoryAll"/>
                      </columns>
                   </TableView>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox minWidth="100" maxWidth="Infinity" minHeight="50" maxHeight="50">
                      <children>
-                        <Button mnemonicParsing="false" text="Read" fx:id="buttonReadAll" onAction="#readAll"/>
-                        <Button mnemonicParsing="false" text="Add" fx:id="buttonAdd2Case" onAction="#add2Case"/>
-                        <TextField promptText="Title, author, category" fx:id="searchField" />
-                        <Button mnemonicParsing="false" text="Search" fx:id="buttonSearch" onAction="#searchBook"/>
+                        <Button minWidth="100" maxWidth="100" minHeight="50" maxHeight="50" mnemonicParsing="false" text="Read" fx:id="buttonReadAll" onAction="#readAll"/>
+                        <Button minWidth="100" maxWidth="100" minHeight="50" maxHeight="50" mnemonicParsing="false" text="Add" fx:id="buttonAdd2Case" onAction="#add2Case"/>
+                        <Region maxWidth="Infinity" fx:id="space"/>
+                        <TextField prefWidth="300" minWidth="100" maxWidth="300" minHeight="50" maxHeight="50" promptText="Title, author, category" fx:id="searchField" />
+                        <Button minWidth="100" maxWidth="100" minHeight="50" maxHeight="50" mnemonicParsing="false" text="Search" fx:id="buttonSearch" onAction="#searchBook"/>
                      </children>
                   </HBox>
                </children>

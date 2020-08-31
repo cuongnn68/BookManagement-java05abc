@@ -1,15 +1,13 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.Book;
 import abc.java05.service.AdminService;
 import abc.java05.service.UserService;
-import com.sun.xml.internal.bind.v2.runtime.property.PropertyFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,17 +15,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
+    @FXML
+    private VBox wrap;
+
     @FXML
     private Label adminLabel;
 
@@ -46,6 +47,9 @@ public class AdminController implements Initializable {
     private TableColumn<Book, String> cPublisher;
     @FXML
     private TableColumn<Book, String> cCategory;
+
+    @FXML
+    private GridPane buttons;
 
     @FXML
     private Button createButton;
@@ -69,6 +73,10 @@ public class AdminController implements Initializable {
         cPublisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
         cCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         bookTable.setItems(getBooks());
+
+//        wrap.heightProperty().addListener((ol, n1, n2) -> {
+//            bookTable.setPrefHeight(n2.doubleValue() - adminLabel.getHeight() - buttons.getHeight());
+//        });
 
         // multi select
     }
@@ -136,7 +144,8 @@ public class AdminController implements Initializable {
     private void logout() throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/abc/java05/view/Login.fxml"));
         Stage now =  (Stage) adminLabel.getScene().getWindow();
-        now.setTitle("Login");
-        now.setScene(new Scene(p));
+        Scene scene = new Scene(p);
+        ConfigStage.loginWindow(now, scene);
+        now.setScene(scene);
     }
 }

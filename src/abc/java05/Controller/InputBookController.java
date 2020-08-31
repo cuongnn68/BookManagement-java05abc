@@ -1,8 +1,9 @@
-package abc.java05.controller.ui;
+package abc.java05.controller;
 
 import abc.java05.model.Book;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -22,23 +23,16 @@ public class InputBookController {
     private TextField category;
 
     @FXML
-    private TextField brief;
+    private TextArea brief;
 
     @FXML
-    private TextField content;
+    private TextArea content;
 
     @FXML
     private Button okButton;
 
     public void setBook(Book b) {
         book = b;
-//        book.setId(b.getId());
-//        book.setTitle(b.getTitle());
-//        book.setAuthor(b.getAuthor());
-//        book.setPublisher(b.getPublisher());
-//        book.setCategory(b.getCategory());
-//        book.setContent(b.getContent());
-//        book.setBrief(b.getBrief());
     }
 
     public void showBook () {

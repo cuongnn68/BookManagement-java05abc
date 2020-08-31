@@ -12,19 +12,7 @@ public class AdminService {
     * Neu sach add dc them thi tra ve true
     * */
     public boolean createBook(Book book) {
-//        System.out.print("Enter the title: ");
-//        String title = scanner.nextLine();
-//        System.out.print("Enter the author: ");
-//        String author = scanner.nextLine();
-//        System.out.print("Enter the brief: ");
-//        String brief = scanner.nextLine();
-//        System.out.print("Enter the publisher: ");
-//        String publisher = scanner.nextLine();
-//        System.out.print("Enter the category: ");
-//        String category = scanner.nextLine();
-//        System.out.println("Enter the content: ");
-//        String content = scanner.nextLine();
-//        Book book = new Book(title,author,brief,publisher,category,content);
+        if(book.getTitle() == null || book.getTitle().isEmpty()) return false;
         return DBBook.save(book);
     }
     /*
